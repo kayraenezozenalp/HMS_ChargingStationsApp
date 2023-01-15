@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.huawei.agconnect'
+    id  'androidx.navigation.safeargs'
+    id("kotlin-parcelize")
+}
+
+android {
+    namespace 'com.example.chargestationsapp'
+    compileSdk 32
+    signingConfigs{
+        config{
+            keyAlias 'key0'
+            keyPassword 'kayra7768'
+            storeFile file('ChargeStationsApp.jks')
+            storePassword 'kayra7768'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.example.chargestationsapp"
+        minSdk 23
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug{
+            signingConfig signingConfigs.config
+        }
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation 'com.huawei.hms:location:6.8.0.300'
+    implementation 'com.huawei.hms:push:6.7.0.300'
+    implementation "com.huawei.agconnect:agconnect-auth-huawei:1.7.3.300"
+    implementation 'com.huawei.hms:hmscoreinstaller:6.6.0.300'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'com.huawei.agconnect:agconnect-auth:1.5.0.300'
+    implementation 'com.huawei.hms:hwid:6.3.0.301'
+    implementation 'com.huawei.agconnect:agconnect-api-core:1.6.2.300'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.huawei.hms:maps:6.0.0.301'
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.1.0.301'
+    implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.2.300'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.1"
+    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+    implementation 'com.squareup.moshi:moshi-adapters:1.13.0'
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation 'com.squareup.okhttp:okhttp:2.7.2'
+    implementation 'androidx.room:room-common:2.4.3'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.huawei.hms:site:6.4.0.304'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+}
